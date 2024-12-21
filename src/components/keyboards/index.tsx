@@ -9,6 +9,7 @@ type SioKeyboardProps = KeyboardProps & {
     placeholder?: string;
     placeholderTextColor?: string;
     style?: object;
+    autoCapitalize?: string;
 };
 
 export const SioKeyboard = ({
@@ -22,6 +23,7 @@ export const SioKeyboard = ({
                                 placeholder,
                                 placeholderTextColor,
                                 style,
+                                autoCapitalize = "none",
                             }: SioKeyboardProps) => {
     return (
         <TextInput
@@ -35,6 +37,7 @@ export const SioKeyboard = ({
             onBlur={onBlur}
             placeholder={placeholder}
             placeholderTextColor={placeholderTextColor}
+            autoCapitalize="none"
         />
     );
 };
