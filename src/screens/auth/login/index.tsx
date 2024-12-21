@@ -1,32 +1,30 @@
-import React, {useState, useEffect} from "react";
-import {View, TouchableOpacity, StyleSheet, Alert} from "react-native";
-import {StackNavigationProp} from "@react-navigation/stack";
-import {useNavigation} from "@react-navigation/core";
+import React, { useState, useEffect } from "react";
+import { View, TouchableOpacity, StyleSheet, Alert } from "react-native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { useNavigation } from "@react-navigation/core";
 
 import Pretendard from "@/components/fonts/pretendard";
 import Logo from "@/components/logo/logo.svg";
 
-import {RootStackPramList} from "@/navigations/RootNavigation";
+import { RootStackPramList } from "@/navigations/RootNavigation";
 import useLogin from "@/hooks/auth/useLogin";
 import SioInput from "@/components/input";
-import {SioButton} from "@/components/button";
-import {Theme} from "@/design/theme";
+import { SioButton } from "@/components/button";
+import { Theme } from "@/design/theme";
 
 type RootNavigationProps = StackNavigationProp<RootStackPramList, "Login">;
 
 const Login = () => {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
-    const {loading, login, error} = useLogin();
+    const { loading, login, error } = useLogin();
 
     const navigation = useNavigation<RootNavigationProps>();
 
-    useEffect(() => {
         if (error) {
-            Alert.alert("로그인 실패, 정보를 다시 확인해주세요.");
-            console.error(error);
+            Alert.alert("로그인 실패", error);  // error를 Alert에 표시
+            console.error(error);  // 콘솔에 오류 메시지 기록
         }
-    }, [error]);
 
     const handleLogin = async () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -41,7 +39,7 @@ const Login = () => {
             console.log("navigate to Main");
             navigation.reset({
                 index: 0,
-                routes: [{name: "Main"}],
+                routes: [{ name: "Main" }],
             });
         }
     };
@@ -52,13 +50,13 @@ const Login = () => {
 
     const handleMain = () => {
         navigation.navigate("Main");
-    }
+    };
 
     return (
         <View style={styles.container}>
             <View style={styles.logoContainer}>
-                <Logo width={80} height={80}/>
-                <Pretendard fontSize={20} fontWeight={"Bold"} style={{color: Theme.colors.gray["800"]}}>
+                <Logo width={80} height={80} />
+                <Pretendard fontSize={20} fontWeight={"Bold"} style={{ color: Theme.colors.gray["800"] }}>
                     환자 분류, 이제는 더 빠르게
                 </Pretendard>
             </View>
@@ -78,7 +76,6 @@ const Login = () => {
                 />
             </View>
 
-
             <View style={styles.buttonContainer}>
                 <SioButton
                     title={loading ? "로그인 중..." : "로그인"}
@@ -94,7 +91,7 @@ const Login = () => {
                         <Pretendard
                             fontSize={14}
                             fontWeight={"Medium"}
-                            style={{color: Theme.colors.primary[400], marginLeft: 5}}
+                            style={{ color: Theme.colors.primary[400], marginLeft: 5 }}
                         >
                             회원가입하기
                         </Pretendard>
@@ -125,9 +122,6 @@ const styles = StyleSheet.create({
         flex: 0.2,
         justifyContent: "center",
     },
-    input: {
-        marginBottom: 20,
-    },
     signUpContainer: {
         flexDirection: "row",
         justifyContent: "center",
@@ -139,8 +133,8 @@ const styles = StyleSheet.create({
         width: "100%",
     },
     buttonContainer: {
-        marginTop: 40
-    }
+        marginTop: 40,
+    },
 });
 
 export default Login;

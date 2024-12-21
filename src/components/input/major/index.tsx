@@ -12,12 +12,12 @@ const MajorSelection = ({ role, onSelectMajor, selectedMajor }: MajorSelectionPr
     const getMajors = () => {
         if (role === 'MEDICAL') {
             return [
+                MedicalSpecialties.RESPIRATORY_MEDICINE,
                 MedicalSpecialties.EMERGENCY_MEDICINE,
                 MedicalSpecialties.GENERAL_SURGERY,
                 MedicalSpecialties.THORACIC_SURGERY,
                 MedicalSpecialties.ORTHOPEDICS,
                 MedicalSpecialties.CARDIOLOGY,
-                MedicalSpecialties.RESPIRATORY_MEDICINE,
                 MedicalSpecialties.GASTROENTEROLOGY,
                 MedicalSpecialties.PEDIATRICS,
                 MedicalSpecialties.OBSTETRICS_GYNECOLOGY,
@@ -33,6 +33,41 @@ const MajorSelection = ({ role, onSelectMajor, selectedMajor }: MajorSelectionPr
         return [];
     };
 
+
+    const getDisplayName = (major: string) => {
+        switch (major) {
+            case MedicalSpecialties.RESPIRATORY_MEDICINE:
+                return '호흡기내과';
+            case MedicalSpecialties.EMERGENCY_MEDICINE:
+                return '응급의학과';
+            case MedicalSpecialties.GENERAL_SURGERY:
+                return '일반외과';
+            case MedicalSpecialties.THORACIC_SURGERY:
+                return '흉부외과';
+            case MedicalSpecialties.ORTHOPEDICS:
+                return '정형외과';
+            case MedicalSpecialties.CARDIOLOGY:
+                return '심장내과';
+            case MedicalSpecialties.GASTROENTEROLOGY:
+                return '소화기내과';
+            case MedicalSpecialties.PEDIATRICS:
+                return '소아과';
+            case MedicalSpecialties.OBSTETRICS_GYNECOLOGY:
+                return '산부인과';
+            case MedicalSpecialties.NEUROSURGERY:
+                return '신경외과';
+            case MedicalSpecialties.PARAMEDIC:
+                return '구급대원';
+            case MedicalSpecialties.FIREFIGHTER:
+                return '소방관';
+            case MedicalSpecialties.RESCUE_WORKER:
+                return '구조대원';
+            default:
+                return major;
+        }
+    };
+
+
     return (
         <View style={styles.container}>
             <FlatList
@@ -40,7 +75,7 @@ const MajorSelection = ({ role, onSelectMajor, selectedMajor }: MajorSelectionPr
                 renderItem={({ item }) => (
                     <TouchableOpacity onPress={() => onSelectMajor(item)}>
                         <Text style={[styles.majorText, selectedMajor === item && styles.selectedMajor]}>
-                            {item}
+                            {getDisplayName(item)}
                         </Text>
                     </TouchableOpacity>
                 )}

@@ -5,7 +5,7 @@ import Login from "@/screens/auth/login";
 import SignUp from "@/screens/auth/signup";
 import Hospital from "@/screens/hospital";
 import Main from "@/screens/main";
-import Analystic from "@/screens/analystic";
+import Analystic from "src/screens/triage";
 
 export type RootStackPramList = {
     Login: undefined;

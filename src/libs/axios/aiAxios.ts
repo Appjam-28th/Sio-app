@@ -1,12 +1,13 @@
 import axios, { AxiosInstance, AxiosError } from 'axios';
+import { AI_SERVER_URL } from '@env';
 import { Alert } from 'react-native';
 
 class AxiosService {
     private axiosInstance: AxiosInstance;
 
     constructor() {
-        // 하드코딩된 URL로 baseURL 설정
-        const baseURL = 'http://15.164.234.26:8000'; // 여기에 실제 서버 URL을 입력하세요
+        // 프로토콜이 없는 경우 기본값으로 http:// 추가
+        const baseURL = AI_SERVER_URL.startsWith('http') ? AI_SERVER_URL : `http://${AI_SERVER_URL}`;
 
         this.axiosInstance = axios.create({
             baseURL,
@@ -99,11 +100,10 @@ class AxiosService {
             throw error;
         }
     }
-
     // GET 요청 함수
-    public async getData<T>(endpoint: string, data: any, params?: any): Promise<T> {
+    public async getData<T>(endpoint: string, params?: any): Promise<T> {
         try {
-            const response = await this.axiosInstance.get(endpoint, { params, ...data });
+            const response = await this.axiosInstance.get(endpoint, { params });
             return response.data;
         } catch (error: any) {
             throw error;
@@ -111,6 +111,6 @@ class AxiosService {
     }
 }
 
-const sioCustomAxios = new AxiosService();
+const sioAICustomAxios = new AxiosService();
 
-export default sioCustomAxios;
+export default sioAICustomAxios;
