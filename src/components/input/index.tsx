@@ -33,7 +33,7 @@ export const SioInput = ({
             <SioKeyboard
                 style={[
                     styles.inputContainer,
-                    { fontSize: 12, color: Theme.colors.gray["300"] },
+                    { fontSize: 12, color: Theme.colors.gray["800"] },
                     isFocused ? styles.focused : styles.unfocused,
                 ]}
                 placeholder={placeholder}
@@ -70,17 +70,16 @@ const styles = StyleSheet.create({
         height: Theme.height.large,
         padding: 12,
         borderRadius: Theme.borderRadius.small,
+        backgroundColor: Theme.colors.gray[300],
         borderWidth: 1,
         fontSize: 16,
         fontFamily: "Pretendard-Medium",
     },
     focused: {
         borderColor: Theme.colors.primary[400],
-        color: Theme.colors.gray[300],
     },
     unfocused: {
         borderColor: Theme.colors.gray[300],
-        color: Theme.colors.gray[300],
     },
     eyeIcon: {
         position: "absolute",
@@ -89,3 +88,5 @@ const styles = StyleSheet.create({
         transform: [{ translateY: -12 }],
     },
 });
+
+export default SioInput;
