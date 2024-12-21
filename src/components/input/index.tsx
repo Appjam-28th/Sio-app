@@ -11,6 +11,7 @@ type InputProps = {
     securePassword?: boolean;
     keyboardType?: "default" | "email-address" | "visible-password";
     returnKeyType?: "done" | "next" | "search" | "go" | "send" | "previous" | "default";
+    onPress?: () => void;
 };
 
 export const SioInput = ({

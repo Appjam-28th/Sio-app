@@ -41,7 +41,7 @@ const Login = () => {
             console.log("navigate to Main");
             navigation.reset({
                 index: 0,
-                routes: [{name: "Hospital"}],
+                routes: [{name: "Main"}],
             });
         }
     };
@@ -50,10 +50,14 @@ const Login = () => {
         navigation.navigate("SignUp");
     };
 
+    const handleMain = () => {
+        navigation.navigate("Main");
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.logoContainer}>
-                <Logo width={80} height={80} />
+                <Logo width={80} height={80}/>
                 <Pretendard fontSize={20} fontWeight={"Bold"} style={{color: Theme.colors.gray["800"]}}>
                     환자 분류, 이제는 더 빠르게
                 </Pretendard>
@@ -96,6 +100,9 @@ const Login = () => {
                         </Pretendard>
                     </TouchableOpacity>
                 </View>
+                <TouchableOpacity onPress={handleMain}>
+                    <Pretendard fontSize={20}>메인화면으로가기</Pretendard>
+                </TouchableOpacity>
             </View>
         </View>
     );

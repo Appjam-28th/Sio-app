@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {Alert} from 'react-native';
-import udiyakCustomAxios from 'src/libs/axios';
+import sioCustomAxios from '@/libs/axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {LoginResponse} from "@/types/login.type";
 
@@ -13,7 +13,7 @@ const useLogin = () => {
         setError(null);
 
         try {
-            const response = await udiyakCustomAxios.postData<LoginResponse>('/auth/login', {
+            const response = await sioCustomAxios.postData<LoginResponse>('/auth/login', {
                 email,
                 password,
             });
