@@ -112,6 +112,6 @@ class AxiosService {
     }
 }
 
-const udiyakCustomAxios = new AxiosService();
+const sioCustomAxios = new AxiosService();
 
-export default udiyakCustomAxios;
+export default sioCustomAxios;
