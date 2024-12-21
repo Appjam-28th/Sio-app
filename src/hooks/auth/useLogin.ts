@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {Alert} from 'react-native';
 import udiyakCustomAxios from 'src/libs/axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {LoginResponse} from "src/type/login.type";
+import {LoginResponse} from "@/types/login.type";
 
 const useLogin = () => {
     const [loading, setLoading] = useState(false);

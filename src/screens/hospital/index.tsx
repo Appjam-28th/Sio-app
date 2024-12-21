@@ -1,6 +1,6 @@
 import React from "react";
 
-const SignUp = () => {
+const Hospital = () => {
     return (
         <>
 
@@ -8,4 +8,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp;
+export default Hospital;
