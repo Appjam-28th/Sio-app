@@ -22,6 +22,7 @@
     "npkill": "^0.12.2",
     "react": "18.3.1",
     "react-native": "0.76.5",
+    "react-native-picker-select": "^9.3.1",
     "react-native-reanimated": "^3.16.6",
     "react-native-svg": "^15.10.1",
     "react-navigation": "^5.0.0"
