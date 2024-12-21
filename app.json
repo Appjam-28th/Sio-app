@@ -28,6 +28,9 @@
       "**/*",
       "node_modules/@react-navigation/elements/lib/commonjs/assets/*",
       "node_modules/@react-navigation/**/*"
+    ],
+    "plugins": [
+      "expo-asset"
     ]
   }
 }
